@@ -34,6 +34,11 @@
       text-decoration: underline;
     }
 
+    /* Style for specific link with light blue */
+    .light-blue-link {
+      color: #87cefa; /* Light blue color */
+    }
+
     /* Container for main content */
     .container {
       max-width: 800px;
@@ -84,6 +89,19 @@
       color: #999;
     }
 
+    /* QR Codes */
+    .qr-codes {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .qr-codes img {
+      width: 400px;
+      height: 400px;
+    }
+
     /* Fade-in Animation */
     .fade-in {
       opacity: 0;
@@ -101,6 +119,11 @@
       .container {
         padding: 20px;
       }
+
+      .qr-codes {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
   </style>
 </head>
@@ -114,7 +137,7 @@
       Dear Reader,
     </p>
     <p class="fade-in">
-      I’m Natig, or Fred if you prefer my English nickname. My heart has always yearned for exploration, captivated by the beauty and complexity of the world. This realization led me to my calling: to guide others on their journeys, helping them uncover the hidden magic each destination holds. I find solace in being a giant with shoulders for people to sit on, just as <a href="https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants">Newton once said</a>. 
+      I’m Natig, or Fred if you prefer my English nickname. My heart has always yearned for exploration, captivated by the beauty and complexity of the world. This realization led me to my calling: to guide others on their journeys, helping them uncover the hidden magic each destination holds. I find solace in being a giant with shoulders for people to sit on, just as <a href="https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants" class="light-blue-link">Newton once said</a>. 
     </p>
     
     <h2 class="fade-in">How It All Began</h2>
@@ -158,9 +181,21 @@
     </a>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer with QR Codes -->
   <footer>
     &copy; 2024 Natig Ibrahimli. Some rights reserved.
+
+    <!-- QR Codes Section -->
+    <div class="qr-codes">
+      <div>
+        <img src="https://cdn.discordapp.com/attachments/1206312067074629702/1290552500415627275/photo_2024-09-29_22-34-18_2.jpg?ex=66fce02d&is=66fb8ead&hm=97269b7e99ca45aad765c0220a983e13cdf4e504a978cbb1d923f90925005025&" alt="QR Code for Webpage">
+        <p>Scan to Visit Webpage</p>
+      </div>
+      <div>
+        <img src="https://cdn.discordapp.com/attachments/1206312067074629702/1290552500122030194/photo_2024-09-29_22-34-18.jpg?ex=66fce02d&is=66fb8ead&hm=be31c9796833dfe877d5dda2740230e360722c3e9a6a87158546739e8a0a3dd4&" alt="QR Code for TripAdvisor Review">
+        <p>Scan to Leave a Review</p>
+      </div>
+    </div>
   </footer>
 
   <!-- JavaScript for Scroll Fade-in Animation -->
