@@ -221,12 +221,12 @@
       const today = new Date().toISOString().slice(0, 10); // Get today's date
 
       // Fetch total visitors from CountAPI
-      const totalResponse = await fetch('https://api.countapi.xyz/hit/your-namespace/total-visitors');
+      const totalResponse = await fetch('https://api.countapi.xyz/hit/miedzymorzz3.github.io/stnatig.github.io/total-visitors');
       const totalData = await totalResponse.json();
       document.getElementById('total-visitors').textContent = totalData.value;
 
       // Fetch today's visitors from CountAPI
-      const todayResponse = await fetch(`https://api.countapi.xyz/hit/your-namespace/visitors-today/${today}`);
+      const todayResponse = await fetch(`https://api.countapi.xyz/hit/miedzymorzz3.github.io/stnatig.github.io/visitors-today/${today}`);
       const todayData = await todayResponse.json();
       document.getElementById('today-visitors').textContent = todayData.value;
     };
