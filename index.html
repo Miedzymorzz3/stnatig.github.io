@@ -114,6 +114,13 @@
       transform: translateY(0);
     }
 
+    /* Visitor Count */
+    .visitor-count {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .container {
@@ -137,29 +144,29 @@
       Dear Reader,
     </p>
     <p class="fade-in">
-      I’m Natig, or Fred if you prefer my English nickname. I always had a thing for exploration, captivated by the beauty and complexity of the world. This realization led me to my calling: to guide others on their journeys, helping them uncover the hidden magic each destination holds. I find solace in being a giant with shoulders for people to sit on, just as <a href="https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants" class="light-blue-link">Newton once said</a>. 
+      I’m Natig, or Frank if you prefer my English nickname. I've always had a thing for exploration, captivated by the beauty and complexity of the world. Seeing each wonder in awe, I want to share this feeling with others. I find solace in being a giant with shoulders for people to sit on, just as <a href="https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants" class="light-blue-link">Newton once said (clickable)</a>. 
     </p>
     
     <h2 class="fade-in">How It All Began</h2>
     <p class="fade-in">
-      My adventure began with a trip to Georgia when I was a kid. The rich history and warmth of the breeze in the beach stirred something deep within me. I felt a void in my life before discovering my actual purpose until before becoming a guide, and ever since, I’ve been on a quest to share that same magic with others. 
+      My adventure began with a trip to Georgia when I was a kid. The rich history and warmth of the beach breeze stirred something deep within me in the city of Batumi. I was feeling a void in my life before discovering my actual purpose. Ever since becoming a guide, I’ve been on a quest to share that same magic with others. 
     </p>
     
     <p class="fade-in">
-      Starting out as a local guide was intimidating. However, with each tour, I found joy in sharing stories and insights. To date of October 1st 2024, I’ve guided over 600 tourists that came from across more than 15 <a href="https://raw.githubusercontent.com/Miedzymorzz3/stnatig.github.io/refs/heads/main/MapChart_Map_4.png" class="light-blue-link">countries</a> . Each encounter has shaped me, and while I’ve shared countless smiles with tourists, I felt that I really did a good job at the end of the day.
+      Starting out as a local guide was intimidating. However, with each tour, I found joy in sharing stories and insights. As of October 10, 2024, I’ve guided over 600 tourists from more than 20 <a href="https://raw.githubusercontent.com/Miedzymorzz3/stnatig.github.io/refs/heads/main/MapChart_Map%20(5).png" class="light-blue-link">countries (clickable)</a>. Each encounter has shaped me, and while I’ve shared countless smiles with tourists, I felt accomplished at the end of each day.
     </p>
     
     <h2 class="fade-in">My Philosophy</h2>
     <p class="fade-in">
-      Guiding isn’t just a job; it’s a heartfelt commitment to creating connections between places and nature with visitors. Travel is about sharing experiences, embracing the unknown, and learning from one another. As we wander through serene landscapes or busy streets, I aim to help you feel the vibes of each place we explore during our trips, even after. 
+      Guiding isn’t just a job; it’s a commitment to creating connections between places and nature with visitors. Travel is about sharing experiences, embracing the unknown, and learning from one another. As we wander through serene landscapes or busy streets, I aim to help you feel the vibes of each place we explore during our trips, even after.
     </p>
     
     <p class="fade-in">
-      I take pride in tailoring each tour to fit your unique interests. Whether you seek history, nature, or a blend of both, my goal is to create an experience that resonates with your own preference.
+      I take pride in tailoring each tour to fit your unique interests. Whether you seek history, nature, or a blend of both, my goal is to create an experience that resonates with your preferences.
     </p>
 
     <p class="fade-in">
-      Together, we’ll embark on an adventure that transcends ordinary sightseeing. You’ll not only witness but also have the feeling of splendid travel deeply within you. I hope to help you create memories that linger long after the journey ends.
+      As an adventurer, you will embark on a journey that transcends ordinary sightseeing. You’ll not only witness but also feel the splendor of travel deep within you. I hope to help you create memories that linger long after the journey ends. Thank you :).
     </p>
 
     <!-- GIF Section Below My Travels and Inspirations -->
@@ -167,6 +174,12 @@
       <img src="https://i.pinimg.com/originals/95/36/a6/9536a67a3ccf108635cea2fc9bb4c62e.gif" alt="Travel Inspiration GIF">
     </div>
   </main>
+
+  <!-- Visitor Count Section -->
+  <div class="visitor-count">
+    <p>Total Visitors: <span id="total-visitors">0</span></p>
+    <p>Visitors Today: <span id="today-visitors">0</span></p>
+  </div>
 
   <!-- Social Media Section -->
   <div class="social-media">
@@ -198,11 +211,30 @@
         <p>Scan or Click to Leave a Review</p>
       </div>
     </div>
-	&copy; 2024 Natig Ibrahimli. Some rights reserved.
+	&copy; 2024 Natig Ibrahimli - Frank Frithjof von Klinski. Some rights reserved.
   </footer>
 
-  <!-- JavaScript for Scroll Fade-in Animation -->
+  <!-- JavaScript for Scroll Fade-in Animation and Visitor Counter -->
   <script>
+    // Visitor Count Logic
+    const updateVisitorCount = async () => {
+      const today = new Date().toISOString().slice(0, 10); // Get today's date
+
+      // Fetch total visitors from CountAPI
+      const totalResponse = await fetch('https://api.countapi.xyz/hit/your-namespace/total-visitors');
+      const totalData = await totalResponse.json();
+      document.getElementById('total-visitors').textContent = totalData.value;
+
+      // Fetch today's visitors from CountAPI
+      const todayResponse = await fetch(`https://api.countapi.xyz/hit/your-namespace/visitors-today/${today}`);
+      const todayData = await todayResponse.json();
+      document.getElementById('today-visitors').textContent = todayData.value;
+    };
+
+    // Run the updateVisitorCount function when the page loads
+    window.onload = updateVisitorCount;
+
+    // Scroll Fade-in Animation
     const faders = document.querySelectorAll('.fade-in');
 
     const appearOptions = {
